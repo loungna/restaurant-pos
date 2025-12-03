@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* เพิ่ม Font สวยๆ (optional) */
+body {
+  font-family: 'Sarabun', sans-serif;
+  /* ถ้าไม่มีฟอนต์นี้ระบบจะใช้ฟอนต์มาตรฐาน */
+  background-color: #f3f4f6;
+}
