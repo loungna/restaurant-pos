@@ -1,20 +1,17 @@
-// src/lib/firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics"; // <--- 1. ต้องเพิ่มบรรทัดนี้ครับ
 
-// --- สำคัญ! เอา Config จาก Firebase Console มาแทนที่ตรงนี้ ---
+// ดึงค่าจาก Environment Variables (.env)
 const firebaseConfig = {
-  apiKey: "AIzaSyD_8auYKSb3tiqfmSCscHjURmr6nq9Yosk",
-  authDomain: "restaurant-pos-d298f.firebaseapp.com",
-  projectId: "restaurant-pos-d298f",
-  storageBucket: "restaurant-pos-d298f.firebasestorage.app",
-  messagingSenderId: "576107465730",
-  appId: "1:576107465730:web:5dd6b61431f6894bd2ab1b",
-  measurementId: "G-4RVYXC4XQ3"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
-// -------------------------------------------------------
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
